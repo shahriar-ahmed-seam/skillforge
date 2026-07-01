@@ -6,7 +6,7 @@
 
 Syllabus, in-depth lessons and quizzes, generated on demand. Local-first with **Ollama**, with a full **hosted demo mode** so it works anywhere.
 
-[**▶ Live Demo**](https://skillforge-seam.vercel.app) · [Report a bug](https://github.com/shahriar-ahmed-seam/skillforge/issues) · [Request a feature](https://github.com/shahriar-ahmed-seam/skillforge/issues)
+[**▶ Live Demo**](https://skillforge-alpha-three.vercel.app) · [Report a bug](https://github.com/shahriar-ahmed-seam/skillforge/issues) · [Request a feature](https://github.com/shahriar-ahmed-seam/skillforge/issues)
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white) ![Ollama](https://img.shields.io/badge/Ollama-gemma3:4b-000?logo=ollama) ![License](https://img.shields.io/badge/license-MIT-green)
 
