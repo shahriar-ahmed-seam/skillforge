@@ -61,21 +61,20 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative flex min-h-[92vh] items-center px-6 pt-28">
+      <section className="relative flex min-h-screen items-center px-6 pb-16 pt-28">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <img
             src={HERO_IMAGE.src}
-            alt="A bright, sunlit library"
+            alt="A bright, sunlit library full of books"
             className="h-full w-full object-cover animate-kenburns"
           />
-          {/* Light wash so ink text stays readable on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-          <div className="absolute inset-0 aurora opacity-70" />
+          {/* Cinematic depth without hiding the 4K image */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-black/45 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
         </div>
 
         <div className="mx-auto w-full max-w-6xl">
-          <div className="max-w-2xl animate-fade-up">
+          <div className="max-w-2xl animate-fade-up rounded-[28px] glass p-8 shadow-2xl sm:p-10">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm text-muted-foreground">
               <Sparkles className="h-4 w-4 text-violet-500" />
               Powered by your local LLM · gemma3:4b
@@ -113,7 +112,7 @@ export default function Home() {
           </div>
         </div>
 
-        <span className="absolute bottom-4 right-4 text-[11px] text-foreground/40">
+        <span className="absolute bottom-4 right-4 text-[11px] text-white/70 drop-shadow">
           Photo:{" "}
           <a href={HERO_IMAGE.creditUrl} target="_blank" rel="noreferrer" className="underline">
             {HERO_IMAGE.credit}

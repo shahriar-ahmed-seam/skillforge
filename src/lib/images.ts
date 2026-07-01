@@ -9,7 +9,7 @@ function unsplash(id: string, w = 2000) {
 }
 
 export const HERO_IMAGE = {
-  src: unsplash("photo-1531259736756-6caccf485f81", 2600),
+  src: unsplash("photo-1531259736756-6caccf485f81", 3840),
   credit: "Ken Theimer",
   creditUrl: "https://unsplash.com/@kentheimer",
 };
