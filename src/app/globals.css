@@ -1,51 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71% 4%;
+    /* Warm, study-friendly light theme */
+    --background: 38 44% 97%;
+    --foreground: 28 25% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card-foreground: 28 25% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
-    --primary: 262 83% 58%;
+    --popover-foreground: 28 25% 14%;
+    --primary: 258 68% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 224 71% 12%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-    --accent: 262 83% 96%;
-    --accent-foreground: 262 83% 30%;
-    --destructive: 0 84% 60%;
+    --secondary: 34 30% 93%;
+    --secondary-foreground: 28 25% 18%;
+    --muted: 34 26% 94%;
+    --muted-foreground: 28 10% 42%;
+    --accent: 258 60% 95%;
+    --accent-foreground: 258 60% 34%;
+    --destructive: 0 78% 52%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262 83% 58%;
-    --radius: 0.75rem;
+    --border: 32 22% 88%;
+    --input: 32 22% 88%;
+    --ring: 258 68% 55%;
+    --radius: 0.85rem;
   }
 
+  /* Optional dark support retained for the code-heavy dashboard if toggled. */
   .dark {
-    --background: 224 47% 5%;
-    --foreground: 210 40% 98%;
-    --card: 224 40% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 224 44% 7%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 262 83% 66%;
-    --primary-foreground: 224 71% 4%;
-    --secondary: 223 30% 14%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 223 30% 13%;
-    --muted-foreground: 217 15% 62%;
-    --accent: 262 45% 20%;
-    --accent-foreground: 262 83% 90%;
+    --background: 258 30% 8%;
+    --foreground: 40 30% 96%;
+    --card: 258 26% 11%;
+    --card-foreground: 40 30% 96%;
+    --popover: 258 26% 11%;
+    --popover-foreground: 40 30% 96%;
+    --primary: 258 80% 70%;
+    --primary-foreground: 258 30% 9%;
+    --secondary: 258 18% 18%;
+    --secondary-foreground: 40 30% 96%;
+    --muted: 258 16% 16%;
+    --muted-foreground: 40 12% 68%;
+    --accent: 258 24% 22%;
+    --accent-foreground: 258 80% 82%;
     --destructive: 0 62% 45%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 223 25% 16%;
-    --input: 223 25% 16%;
-    --ring: 262 83% 66%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 258 16% 20%;
+    --input: 258 16% 20%;
+    --ring: 258 80% 70%;
   }
 }
 
@@ -60,27 +64,38 @@
 }
 
 @layer components {
-  /* Aurora / mesh gradient backdrop used behind hero + sections */
-  .aurora {
-    background:
-      radial-gradient(60% 55% at 15% 20%, hsl(262 83% 58% / 0.28), transparent 60%),
-      radial-gradient(55% 55% at 85% 15%, hsl(199 89% 55% / 0.22), transparent 60%),
-      radial-gradient(60% 60% at 70% 85%, hsl(322 82% 60% / 0.2), transparent 60%);
+  .font-display {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-optical-sizing: auto;
   }
 
+  /* Soft warm aurora for a bright, dreamy backdrop */
+  .aurora {
+    background:
+      radial-gradient(50% 55% at 12% 18%, hsl(258 80% 70% / 0.22), transparent 60%),
+      radial-gradient(50% 55% at 88% 12%, hsl(28 90% 66% / 0.20), transparent 60%),
+      radial-gradient(55% 60% at 72% 88%, hsl(190 80% 66% / 0.18), transparent 60%);
+  }
+
+  /* Light glassmorphism */
   .glass {
-    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+    @apply border border-black/[0.06] bg-white/70 backdrop-blur-xl;
+    box-shadow: 0 10px 40px -12px rgba(60, 40, 20, 0.15);
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-violet-300 via-fuchsia-200 to-sky-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-violet-600 via-fuchsia-500 to-amber-500 bg-clip-text text-transparent;
   }
 
   .grid-overlay {
     background-image:
-      linear-gradient(to right, hsl(210 40% 98% / 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(210 40% 98% / 0.04) 1px, transparent 1px);
+      linear-gradient(to right, hsl(28 25% 14% / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(28 25% 14% / 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-violet-600;
   }
 }
 
@@ -89,10 +104,10 @@
   @apply text-[15.5px] leading-7 text-foreground/90;
 }
 .prose-lesson h1 {
-  @apply mb-4 mt-2 text-3xl font-bold tracking-tight;
+  @apply mb-4 mt-2 font-display text-3xl font-semibold tracking-tight;
 }
 .prose-lesson h2 {
-  @apply mb-3 mt-8 border-b border-border/60 pb-2 text-2xl font-semibold tracking-tight;
+  @apply mb-3 mt-8 border-b border-border/60 pb-2 font-display text-2xl font-semibold tracking-tight;
 }
 .prose-lesson h3 {
   @apply mb-2 mt-6 text-xl font-semibold;
@@ -110,16 +125,16 @@
   @apply text-primary underline underline-offset-4;
 }
 .prose-lesson blockquote {
-  @apply my-4 border-l-4 border-primary/50 bg-muted/40 py-2 pl-4 italic text-muted-foreground;
+  @apply my-4 border-l-4 border-primary/50 bg-muted/50 py-2 pl-4 italic text-muted-foreground;
 }
 .prose-lesson code {
   @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[13.5px] text-foreground;
 }
 .prose-lesson pre {
-  @apply my-5 overflow-x-auto rounded-xl border border-border bg-[hsl(224_47%_4%)] p-4 text-[13px] leading-6;
+  @apply my-5 overflow-x-auto rounded-xl border border-border bg-[hsl(258_30%_10%)] p-4 text-[13px] leading-6;
 }
 .prose-lesson pre code {
-  @apply bg-transparent p-0 text-foreground/90;
+  @apply bg-transparent p-0 text-[hsl(40_30%_92%)];
 }
 .prose-lesson strong {
   @apply font-semibold text-foreground;
@@ -142,6 +157,12 @@
   border-radius: 10px;
 }
 
+@keyframes kenburns {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.14); }
+}
+.animate-kenburns { animation: kenburns 20s ease-out forwards; }
+
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) }
   50% { transform: translateY(-14px) }
@@ -149,7 +170,10 @@
 .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px) }
+  from { opacity: 0; transform: translateY(18px) }
   to { opacity: 1; transform: translateY(0) }
 }
-.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-fade-up { animation: fade-up 0.75s cubic-bezier(0.22,1,0.36,1) both; }
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
