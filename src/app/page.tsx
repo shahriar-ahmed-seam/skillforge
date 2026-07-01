@@ -33,6 +33,11 @@ const STEPS = [
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Ambient aurora so glass elements refract colour everywhere */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-0 aurora opacity-70" />
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60" />
+
+      <div className="relative z-10">
       {/* NAV */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-2xl glass px-4 py-3 sm:px-6">
@@ -62,7 +67,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative flex min-h-screen items-center px-6 pb-16 pt-28">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={HERO_IMAGE.src}
             alt="A bright, sunlit library full of books"
@@ -70,10 +75,10 @@ export default function Home() {
           />
           {/* Cinematic depth without hiding the 4K image */}
           <div className="absolute inset-0 bg-gradient-to-tr from-black/45 via-black/10 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-transparent" />
         </div>
 
-        <div className="mx-auto w-full max-w-6xl">
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
           <div className="max-w-2xl animate-fade-up rounded-[28px] glass p-8 shadow-2xl sm:p-10">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm text-muted-foreground">
               <Sparkles className="h-4 w-4 text-violet-500" />
@@ -159,10 +164,10 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS (split with image) */}
-      <section className="relative overflow-hidden bg-secondary py-24">
+      <section className="relative overflow-hidden py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl shadow-xl">
+            <div className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-white/40">
               <img
                 src={STEP_IMAGE.src}
                 alt="An open notebook on a sunlit desk"
@@ -170,7 +175,7 @@ export default function Home() {
                 className="aspect-[4/3] w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-5 -right-4 hidden rounded-2xl bg-white px-6 py-5 shadow-xl ring-1 ring-black/5 sm:block">
+            <div className="absolute -bottom-5 -right-4 hidden rounded-2xl glass px-6 py-5 sm:block">
               <p className="font-display text-3xl font-semibold text-violet-600">3 steps</p>
               <p className="text-sm text-muted-foreground">to a new skill</p>
             </div>
@@ -180,10 +185,10 @@ export default function Home() {
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight">
               From curiosity to a course
             </h2>
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-4">
               {STEPS.map((s) => (
-                <div key={s.n} className="flex gap-4">
-                  <span className="font-display text-3xl font-bold text-violet-200">{s.n}</span>
+                <div key={s.n} className="flex gap-4 rounded-2xl glass-panel p-4">
+                  <span className="font-display text-3xl font-bold text-violet-400">{s.n}</span>
                   <div>
                     <h3 className="text-lg font-semibold">{s.title}</h3>
                     <p className="text-sm text-muted-foreground">{s.body}</p>
@@ -205,9 +210,9 @@ export default function Home() {
           {FEATURES.map((f) => (
             <div
               key={f.title}
-              className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+              className="group rounded-2xl glass p-6 transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-violet-500/15 to-fuchsia-500/15 text-violet-600 ring-1 ring-inset ring-violet-500/10">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-violet-500/25 to-fuchsia-500/25 text-violet-600 ring-1 ring-inset ring-white/40 backdrop-blur">
                 <f.icon className="h-5 w-5" />
               </span>
               <h3 className="mt-4 text-lg font-semibold">{f.title}</h3>
@@ -255,6 +260,7 @@ export default function Home() {
           </span>
         </div>
       </footer>
+      </div>
     </main>
   );
 }
